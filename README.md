@@ -33,4 +33,12 @@ def download_data():
     
     if data.empty:
         print("No data found. Please check the ticker symbol and try again.")
+<<<<<<< HEAD
         return None
+=======
+        return None
+
+    print("Data downloaded successfully. Here are the first 5 rows:")
+    print(data.head())
+    return data
+>>>>>>> bb375f89aa18f35f433c2ce9c51d0454ac51f3a8
