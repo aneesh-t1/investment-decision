@@ -18,3 +18,23 @@ This project analyzes historical stock data to compute technical indicators such
    ```bash
    git clone https://github.com/yourusername/investment-decision.git
    cd investment-decision
+
+## Data Downloading
+
+The `investment_decision.py` script now includes functionality to download historical stock data using the [yfinance](https://pypi.org/project/yfinance/) library. When you run the script, you'll be prompted to enter a ticker symbol (for example, `AAPL`). The script then downloads 5 years of historical data for that ticker and displays the first 5 rows as confirmation.
+
+### Key Code Snippet:
+
+```python
+def download_data():
+    ticker = input("Enter the ticker symbol (e.g., AAPL): ").strip().upper()
+    print(f"Downloading data for {ticker}...")
+    data = yf.download(ticker, period="5y")
+    
+    if data.empty:
+        print("No data found. Please check the ticker symbol and try again.")
+        return None
+
+    print("Data downloaded successfully. Here are the first 5 rows:")
+    print(data.head())
+    return data
